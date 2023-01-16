@@ -1,0 +1,45 @@
+﻿@model List<Participants>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <link rel="stylesheet" href="~/css/normalize.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="" class="header-link-logo menu-link">Love First</a>
+            <a class="menu-link" asp-action="History">История</a>
+            <a class="menu-link" asp-action="Settings">Настройки</a>
+            <div class="total-count">
+                <span>Общий счет</span>
+                <span>@ViewBag.totalScore</span>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="container">
+            
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <div class="btn">
+                    <div class="button">
+                        <a href="" class="background-color-@i main-button">+1</a>
+                    </div>
+                    <div class="info">
+                        <span class="title">@Model[i].NameParticipant</span>
+                        <span class="count-first">@Model[i].NumberScore</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+</html> 

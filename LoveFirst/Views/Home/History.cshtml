@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Operations>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>History</title>
+    <link rel="stylesheet" href="~/css/normalize.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <main class="main">
+        <div class="container">
+            <table class="table">
+                <thead class="table-head">
+                    <tr>
+                        <th>Номер операции</th>
+                        <th>Имя участника</th>
+                        <th>Баллы</th>
+                        <th>Дата операции</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    @foreach (LoveFirst.Models.Operations operation in Model)
+                    {
+                        <tr>
+                            <td>@operation.OperationId</td>
+                            <td>@operation.ParticipantId</td>
+                            <td>@operation.Score</td>
+                            <td>@operation.DateOperation.ToString("dd MMM yy hh:mm")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html> 

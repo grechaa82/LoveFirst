@@ -1,0 +1,158 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    background-color: #FFF8F6;
+    height: 100vh;
+}
+
+/* navbar */
+
+.header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 45px 50px 45px 50px;
+}
+
+.navbar > *:not(:last-child) {
+    margin-right: 40px;
+}
+
+.menu-link {
+    color: #D0D0D0;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.total-count span {
+    color: #D0D0D0;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.total-count span:last-child {
+    padding-left: 5px;
+    color: #606060;
+}
+
+
+/* Page: home */
+
+.main {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > *:not(:last-child) {
+    margin-right: 20px;
+}
+
+.middle {
+    margin-top: -50px;
+}
+
+.button {
+    display: flex;
+}
+
+
+.main-button {
+    display: block;
+    padding: 110px 120px 110px 120px;
+    border-radius: 50px;
+    font-size: 100px;
+    line-height: 100%;
+    color: #fff;
+    font-weight: 900;
+}
+
+.info {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.title {
+    color: #D0D0D0;
+    padding-right: 20px;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.count-first {
+    font-weight: 700;
+    font-size: 28px;
+    color: #7E627B;
+}
+
+.count-second {
+    font-weight: 700;
+    font-size: 28px;
+    color: #FFA566;
+}
+
+/* Page: history */
+
+th {
+    color: #606060;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+th:last-child {
+    padding-right: 0px;
+}
+
+td {
+    padding-bottom: 30px;
+}
+
+
+/* Color for button */
+.background-color-0 {
+    background-color: #7E627B;
+}
+
+.background-color-1 {
+    background-color: #FFA566;
+}
+
+.background-color-2 {
+    background-color: #b6ff00;
+}
+
+.background-color-3 {
+    background-color: #0026ff;
+}
+
+.background-color-4 {
+    background-color: #00ffff;
+}
+
+.background-color-5 {
+    background-color: #ff0000;
+}
+
+.background-color-6 {
+    background-color: #ff006e;
+}
+
+.background-color-7 {
+    background-color: #21c282;
+}
+
+.background-color-8 {
+    background-color: #f37fcd;
+}
