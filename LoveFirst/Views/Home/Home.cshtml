@@ -13,20 +13,10 @@
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <a href="" class="header-link-logo menu-link">Love First</a>
-            <a class="menu-link" asp-action="History">История</a>
-            <a class="menu-link" asp-action="Settings">Настройки</a>
-            <div class="total-count">
-                <span>Общий счет</span>
-                <span>@ViewBag.totalScore</span>
-            </div>
-        </nav>
-    </header>
+    @await Html.PartialAsync("../Shared/Header.cshtml")
     <main class="main">
         <div class="container">
-            
+
             @for (int i = 0; i < Model.Count(); i++)
             {
                 <div class="btn">
@@ -39,6 +29,10 @@
                     </div>
                 </div>
             }
+        </div>
+        <div class="total-count">
+            <span>Общий счет</span>
+            <span>@ViewBag.totalScore</span>
         </div>
     </main>
 </body>
