@@ -43,11 +43,7 @@ namespace LoveFirst.Controllers
         [HttpGet("/Home/AddPoint/{participantId:int}/{counterId:int}")]
         public IActionResult AddPoint(int participantId, int counterId)
         {
-            /*var participantId = participant.ParticipantId;
-            var counterId = participant.CounterId;*/
-
-            /*_repository.AddPoint(participantId, counterId);
-            _repository.Add*/
+            _repository.AddPoint(participantId, counterId);
 
             return Redirect("/Home/Home");
         }

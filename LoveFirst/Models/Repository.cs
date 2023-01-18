@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LoveFirst.Models
@@ -35,6 +36,30 @@ namespace LoveFirst.Models
         public int GetCounterId(int profileId)
         {
             return _context.Counters.Where(x => x.ProfileId == profileId).Select(x => x.CounterId).FirstOrDefault();
+        }
+
+        public void AddPoint(int participantId, int counterId)
+        {
+            Operations operation = new Operations { CounterId = counterId, ParticipantId = participantId, Score = 1, DateOperation = DateTime.Now };
+
+            using (_context)
+            {
+                var participant = _context.Participants.SingleOrDefault(x => x.ParticipantId == participantId);
+                if (participant != null)
+                {
+                    participant.NumberScore += 1;
+                    _context.SaveChanges();
+                }
+
+                _context.Operations.Add(operation);
+
+                var counter = _context.Counters.SingleOrDefault(x => x.CounterId == counterId);
+                if (counter != null)
+                {
+                    counter.TotalScores += 1;
+                    _context.SaveChanges();
+                }
+            }
         }
     }
 }

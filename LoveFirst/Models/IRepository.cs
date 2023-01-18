@@ -9,5 +9,6 @@ namespace LoveFirst.Models
         IEnumerable<Participants> GetParticipants(int counterId);
         IEnumerable<Profiles> FindByLogin(string login);
         int GetCounterId(int profileId);
+        void AddPoint(int participantId, int counterId);
     }
 }
