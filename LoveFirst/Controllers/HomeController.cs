@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using LoveFirst.Models;
+using LoveFirst.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,11 +40,17 @@ namespace LoveFirst.Controllers
             return View(participants);
         }
 
-        /*[HttpPost]
-        public IActionResult Home()
+        [HttpGet("/Home/AddPoint/{participantId:int}/{counterId:int}")]
+        public IActionResult AddPoint(int participantId, int counterId)
         {
-            return View();
-        }*/
+            /*var participantId = participant.ParticipantId;
+            var counterId = participant.CounterId;*/
+
+            /*_repository.AddPoint(participantId, counterId);
+            _repository.Add*/
+
+            return Redirect("/Home/Home");
+        }
 
         [HttpGet]
         public IActionResult History()

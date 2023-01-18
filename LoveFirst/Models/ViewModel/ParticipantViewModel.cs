@@ -2,11 +2,11 @@
 
 namespace LoveFirst.Models.ViewModel
 {
-    public class LoginViewModel
+    public class ParticipantViewModel
     {
         [Required]
-        public string Login { get; set; }
+        public int ParticipantId { get; set; }
         [Required]
-        public string Password { get; set; }
+        public int CounterId { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
-    background-color: #FFF8F6;
+    background-color: #FAFAFA;
     height: 100vh;
 }
 
@@ -57,7 +57,7 @@ body {
 
 
 .main-button {
-    display: block;
+    display: flex;
     padding: 110px 120px 110px 120px;
     border-radius: 50px;
     font-size: 100px;
@@ -73,15 +73,16 @@ body {
 
 .title {
     color: #D0D0D0;
-    padding-right: 20px;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 16px;
 }
 
 .count-first {
+    position: relative;
+    top: 30px;
     font-weight: 700;
-    font-size: 28px;
-    color: #7E627B;
+    font-size: 16px;
+    color: #D0D0D0;
 }
 
 .count-second {
