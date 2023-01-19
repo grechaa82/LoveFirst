@@ -19,7 +19,13 @@ namespace LoveFirst.Controllers
             this._repository = repository;
         }
 
-        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+            [HttpGet]
         public IActionResult Home()
         {
             int id;
@@ -53,14 +59,16 @@ namespace LoveFirst.Controllers
         {
             int id = (int)HttpContext.Session.GetInt32("counterId");
 
-            var operations = _repository.GetOperations(id);
+            var operations = _repository.GetOperations(id).ToList();
 
             return View(operations);
         }
 
         public IActionResult Settings()
         {
-            return View();
+            var participants = _repository.GetParticipants((int)HttpContext.Session.GetInt32("counterId")).ToList();
+
+            return View(participants);
         }
     }
 }

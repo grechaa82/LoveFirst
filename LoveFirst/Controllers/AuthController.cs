@@ -2,6 +2,7 @@
 using LoveFirst.Models;
 using LoveFirst.Models.ViewModel;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -59,6 +60,7 @@ namespace LoveFirst.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult LogOff()
         {
             HttpContext.SignOutAsync("Cookie");

@@ -21,16 +21,12 @@
             {
                 <div class="btn">
                     <div class="button">
-                        <a class="background-color-@i main-button" asp-controller="Home" asp-action="AddPoint" asp-route-participantId="@Model[i].ParticipantId" asp-route-counterId="@Model[i].CounterId">
-                            <span>+1</span>
-                            <span class="count-first">/ @Model[i].NumberScore</span>
-                        </a>
-                        <span class="title">@Model[i].NameParticipant</span>
+                        <a class="background-color-@i main-button" asp-controller="Home" asp-action="AddPoint" asp-route-participantId="@Model[i].ParticipantId" asp-route-counterId="@Model[i].CounterId">+1</a>
                     </div>
-                    @*<div class="info">
+                    <div class="info">
                         <span class="title">@Model[i].NameParticipant</span>
-                        <span class="count-first">@Model[i].NumberScore</span>
-                    </div>*@
+                        <span class="count-first color-@i">@Model[i].NumberScore</span>
+                    </div>
                 </div>
             }
         </div>

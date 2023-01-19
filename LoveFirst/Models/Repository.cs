@@ -21,14 +21,20 @@ namespace LoveFirst.Models
 
         public IEnumerable<OperationsViewModel> GetOperations(int counterId)
         {
-            IEnumerable<OperationsViewModel> res = _context.Operations
+            /*IEnumerable<OperationsViewModel> res = _context.Operations
                 .Join(_context.Participants,
                     o => o.ParticipantId,
                     p => p.ParticipantId,
                     (o, p) => new OperationsViewModel { OperationId = o.OperationId, CounterId = o.CounterId, NameParticipant = p.NameParticipant, Score = o.Score, DateOperation = o.DateOperation})
+                .Where(x => x.CounterId == counterId);*/
+
+            return _context.Operations
+                .Join(_context.Participants,
+                    o => o.ParticipantId,
+                    p => p.ParticipantId,
+                    (o, p) => new OperationsViewModel { OperationId = o.OperationId, CounterId = o.CounterId, NameParticipant = p.NameParticipant, Score = o.Score, DateOperation = o.DateOperation })
                 .Where(x => x.CounterId == counterId);
 
-            return res;
             /*return _context.Operations.Where(x => x.CounterId == counterId);*/
         }
 

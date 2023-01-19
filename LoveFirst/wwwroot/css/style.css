@@ -67,28 +67,20 @@ body {
 }
 
 .info {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .title {
     color: #D0D0D0;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .count-first {
-    position: relative;
-    top: 30px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 24px;
     color: #D0D0D0;
-}
-
-.count-second {
-    font-weight: 700;
-    font-size: 28px;
-    color: #FFA566;
 }
 
 /* Total Score */
@@ -130,35 +122,62 @@ td {
 .background-color-0 {
     background-color: #7E627B;
 }
+.color-0 {
+    color: #7E627B;
+}
 
 .background-color-1 {
     background-color: #FFA566;
+}
+.color-1 {
+    color: #FFA566;
 }
 
 .background-color-2 {
     background-color: #b6ff00;
 }
+.color-2 {
+    color: #b6ff00;
+}
 
 .background-color-3 {
     background-color: #0026ff;
+}
+.color-3 {
+    color: #0026ff;
 }
 
 .background-color-4 {
     background-color: #00ffff;
 }
+.color-4 {
+    color: #00ffff;
+}
 
 .background-color-5 {
     background-color: #ff0000;
+}
+.color-5 {
+    color: #ff0000;
 }
 
 .background-color-6 {
     background-color: #ff006e;
 }
+.color-6 {
+    color: #ff006e;
+}
 
 .background-color-7 {
     background-color: #21c282;
 }
+.color-7 {
+    color: #21c282;
+}
 
 .background-color-8 {
     background-color: #f37fcd;
+}
+.color-8 {
+    color: #f37fcd;
 }

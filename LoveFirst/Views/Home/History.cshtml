@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OperationsViewModel>
+﻿@model List<OperationsViewModel>
 @{
     Layout = null;
 }
@@ -26,13 +26,13 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    @foreach (OperationsViewModel operation in Model)
+                    @for (int i = Model.Count()-1; i >= 0; i--)
                     {
                         <tr>
-                            <td>@operation.OperationId</td>
-                            <td>@operation.NameParticipant</td>
-                            <td>@operation.Score</td>
-                            <td>@operation.DateOperation.ToString("dd MMM yy hh:mm")</td>
+                            <td>@Model[i].OperationId</td>
+                            <td>@Model[i].NameParticipant</td>
+                            <td>@Model[i].Score</td>
+                            <td>@Model[i].DateOperation.ToString("dd MMM yy hh:mm")</td>
                         </tr>
                     }
                 </tbody>
