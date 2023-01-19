@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using LoveFirst.Models.ViewModel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LoveFirst.Models
 {
     public interface IRepository
     {
         int GetTotalScore(int profileId);
-        IEnumerable<Operations> GetOperations(int counterId);
+        IEnumerable<OperationsViewModel> GetOperations(int counterId);
         IEnumerable<Participants> GetParticipants(int counterId);
         IEnumerable<Profiles> FindByLogin(string login);
         int GetCounterId(int profileId);

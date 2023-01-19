@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoveFirst.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,9 +19,17 @@ namespace LoveFirst.Models
             return _context.Counters.Where(x => x.ProfileId == profileId).Select(x => x.TotalScores).FirstOrDefault();
         }
 
-        public IEnumerable<Operations> GetOperations(int counterId)
+        public IEnumerable<OperationsViewModel> GetOperations(int counterId)
         {
-            return _context.Operations.Where(x => x.CounterId == counterId);
+            IEnumerable<OperationsViewModel> res = _context.Operations
+                .Join(_context.Participants,
+                    o => o.ParticipantId,
+                    p => p.ParticipantId,
+                    (o, p) => new OperationsViewModel { OperationId = o.OperationId, CounterId = o.CounterId, NameParticipant = p.NameParticipant, Score = o.Score, DateOperation = o.DateOperation})
+                .Where(x => x.CounterId == counterId);
+
+            return res;
+            /*return _context.Operations.Where(x => x.CounterId == counterId);*/
         }
 
         public IEnumerable<Participants> GetParticipants(int counterId)
@@ -46,19 +55,15 @@ namespace LoveFirst.Models
             {
                 var participant = _context.Participants.SingleOrDefault(x => x.ParticipantId == participantId);
                 if (participant != null)
-                {
                     participant.NumberScore += 1;
-                    _context.SaveChanges();
-                }
 
                 _context.Operations.Add(operation);
 
                 var counter = _context.Counters.SingleOrDefault(x => x.CounterId == counterId);
                 if (counter != null)
-                {
                     counter.TotalScores += 1;
-                    _context.SaveChanges();
-                }
+
+                _context.SaveChanges();
             }
         }
     }

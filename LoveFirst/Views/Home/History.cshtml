@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Operations>
+﻿@model IEnumerable<OperationsViewModel>
 @{
     Layout = null;
 }
@@ -26,11 +26,11 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    @foreach (LoveFirst.Models.Operations operation in Model)
+                    @foreach (OperationsViewModel operation in Model)
                     {
                         <tr>
                             <td>@operation.OperationId</td>
-                            <td>@operation.ParticipantId</td>
+                            <td>@operation.NameParticipant</td>
                             <td>@operation.Score</td>
                             <td>@operation.DateOperation.ToString("dd MMM yy hh:mm")</td>
                         </tr>
