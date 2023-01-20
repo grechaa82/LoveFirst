@@ -67,6 +67,42 @@ namespace LoveFirst.Controllers
             return Redirect("/Auth/Login");
         }
 
+        [HttpGet]
+        public IActionResult Registration()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Registration(ProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Password == model.ConfirmPassword)
+                {
+                    var user = _repository.FindByLogin(model.Login).ToList();
+
+                    if (user.Count() == 0)
+                    {
+                        _repository.CreateProfile(model.Login, Sha256Hash.ComputeSha256Hash(model.Password));
+                        return Redirect("/Auth/Login");
+                    }
+                }
+                else
+                {
+                    ViewBag.result = "Пароли не совпадают";
+                    return View();
+                }
+            }
+            else
+            {
+                return View(model);
+            }
+
+            return View();
+        }
+
         private void CreateSessionData(List<Profiles> user)
         {
             HttpContext.Session.SetInt32("profileId", user[0].ProfileId);

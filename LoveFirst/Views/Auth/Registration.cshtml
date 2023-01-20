@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+﻿@model ProfileViewModel
 @{
     Layout = null;
 }
@@ -15,23 +15,27 @@
 <body>
     <main class="main">
         <div class="container">
-            <form asp-controller="Auth" asp-action="Login" method="post">
+            <form asp-controller="Auth" asp-action="Registration" method="post">
                 <span>@ViewBag.result</span>
                 <div>
-                    <label>Логин</label>
+                    <label>Введите логин</label>
                     <input asp-for="Login" />
                     <span asp-validation-for="Login"></span>
                 </div>
                 <div>
-                    <label>Пароль</label>
+                    <label>Придумайте пароль</label>
                     <input asp-for="Password" />
                     <span asp-validation-for="Password"></span>
                 </div>
                 <div>
-                    <button type="submit">Войти</button>
+                    <label>Подтвердите пароль</label>
+                    <input asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div>
+                    <button type="submit">Создать</button>
                 </div>
             </form>
-            <a asp-action="Registration">Создать новый аккаунт?</a>
         </div>
     </main>
 </body>

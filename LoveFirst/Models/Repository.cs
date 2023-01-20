@@ -1,6 +1,7 @@
 ﻿using LoveFirst.Models.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace LoveFirst.Models
@@ -55,10 +56,10 @@ namespace LoveFirst.Models
 
         public void AddPoint(int participantId, int counterId)
         {
-            Operations operation = new Operations { CounterId = counterId, ParticipantId = participantId, Score = 1, DateOperation = DateTime.Now };
-
             using (_context)
             {
+                Operations operation = new Operations { CounterId = counterId, ParticipantId = participantId, Score = 1, DateOperation = DateTime.Now };
+                
                 var participant = _context.Participants.SingleOrDefault(x => x.ParticipantId == participantId);
                 if (participant != null)
                     participant.NumberScore += 1;
@@ -68,6 +69,23 @@ namespace LoveFirst.Models
                 var counter = _context.Counters.SingleOrDefault(x => x.CounterId == counterId);
                 if (counter != null)
                     counter.TotalScores += 1;
+
+                _context.SaveChanges();
+            }
+        }
+
+        public void CreateProfile(string login, string passwordHash)
+        {
+            using (_context)
+            {
+                Profiles profile = new Profiles { Login = login, PasswordHash = passwordHash };
+                _context.Profiles.Add(profile);
+
+                _context.SaveChanges();
+
+                int profileId = _context.Profiles.Where(x => x.Login == login).Select(x => x.ProfileId).FirstOrDefault();
+                Counters counter = new Counters { ProfileId = profileId, TotalScores = 0 };
+                _context.Counters.Add(counter);
 
                 _context.SaveChanges();
             }

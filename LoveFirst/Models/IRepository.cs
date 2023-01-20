@@ -12,5 +12,6 @@ namespace LoveFirst.Models
         IEnumerable<Profiles> FindByLogin(string login);
         int GetCounterId(int profileId);
         void AddPoint(int participantId, int counterId);
+        void CreateProfile(string login, string passwordHash);
     }
 }

@@ -70,5 +70,13 @@ namespace LoveFirst.Controllers
 
             return View(participants);
         }
+
+        [HttpPost]
+        public IActionResult AddParticipant()
+        {
+
+
+            return View("/Home");
+        }
     }
 }

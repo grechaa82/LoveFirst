@@ -8,5 +8,9 @@ namespace LoveFirst.Models.ViewModel
         public int ParticipantId { get; set; }
         [Required]
         public int CounterId { get; set; }
+        [Required]
+        public string NameParticipant { get; set; }
+        [Required]
+        public int NumberScore { get; set; }
     }
 }
