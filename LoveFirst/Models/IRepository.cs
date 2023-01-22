@@ -13,5 +13,6 @@ namespace LoveFirst.Models
         int GetCounterId(int profileId);
         void AddPoint(int participantId, int counterId);
         void CreateProfile(string login, string passwordHash);
+        void AddParticipant(int counterId, string nameParticipant, int numberScore);
     }
 }

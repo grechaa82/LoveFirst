@@ -90,5 +90,16 @@ namespace LoveFirst.Models
                 _context.SaveChanges();
             }
         }
+
+        public void AddParticipant(int counterId, string nameParticipant, int numberScore)
+        {
+            using (_context)
+            {
+                Participants participant = new Participants { CounterId = counterId, NameParticipant = nameParticipant, NumberScore = numberScore };
+                _context.Participants.Add(participant);
+
+                _context.SaveChanges();
+            }
+        }
     }
 }

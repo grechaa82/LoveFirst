@@ -25,7 +25,7 @@ namespace LoveFirst.Controllers
             return View();
         }
 
-            [HttpGet]
+        [HttpGet]
         public IActionResult Home()
         {
             int id;
@@ -71,12 +71,20 @@ namespace LoveFirst.Controllers
             return View(participants);
         }
 
-        [HttpPost]
+        /*[HttpGet]
         public IActionResult AddParticipant()
         {
 
+            return View();
+        }*/
 
-            return View("/Home");
+        public IActionResult AddParticipant(string nameParticipant, int numberScore)
+        {
+            int counterId = (int)HttpContext.Session.GetInt32("counterId");
+
+            _repository.AddParticipant(counterId, nameParticipant, numberScore);
+
+            return Redirect("/Home/Settings");
         }
     }
 }
