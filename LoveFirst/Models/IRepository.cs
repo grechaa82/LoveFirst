@@ -6,7 +6,7 @@ namespace LoveFirst.Models
 {
     public interface IRepository
     {
-        int GetTotalScore(int profileId);
+        int GetTotalScore(int counterId);
         IEnumerable<OperationsViewModel> GetOperations(int counterId);
         IEnumerable<Participants> GetParticipants(int counterId);
         IEnumerable<Profiles> FindByLogin(string login);

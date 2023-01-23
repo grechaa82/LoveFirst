@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using LoveFirst.Models;
-using LoveFirst.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -70,13 +69,6 @@ namespace LoveFirst.Controllers
 
             return View(participants);
         }
-
-        /*[HttpGet]
-        public IActionResult AddParticipant()
-        {
-
-            return View();
-        }*/
 
         public IActionResult AddParticipant(string nameParticipant, int numberScore)
         {

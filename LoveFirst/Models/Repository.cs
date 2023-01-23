@@ -15,28 +15,19 @@ namespace LoveFirst.Models
             this._context = context;
         }
 
-        public int GetTotalScore(int profileId)
+        public int GetTotalScore(int counterId)
         {
-            return _context.Counters.Where(x => x.ProfileId == profileId).Select(x => x.TotalScores).FirstOrDefault();
+            return _context.Counters.Where(x => x.CounterId == counterId).Select(x => x.TotalScores).FirstOrDefault();
         }
 
         public IEnumerable<OperationsViewModel> GetOperations(int counterId)
         {
-            /*IEnumerable<OperationsViewModel> res = _context.Operations
-                .Join(_context.Participants,
-                    o => o.ParticipantId,
-                    p => p.ParticipantId,
-                    (o, p) => new OperationsViewModel { OperationId = o.OperationId, CounterId = o.CounterId, NameParticipant = p.NameParticipant, Score = o.Score, DateOperation = o.DateOperation})
-                .Where(x => x.CounterId == counterId);*/
-
             return _context.Operations
                 .Join(_context.Participants,
                     o => o.ParticipantId,
                     p => p.ParticipantId,
                     (o, p) => new OperationsViewModel { OperationId = o.OperationId, CounterId = o.CounterId, NameParticipant = p.NameParticipant, Score = o.Score, DateOperation = o.DateOperation })
                 .Where(x => x.CounterId == counterId);
-
-            /*return _context.Operations.Where(x => x.CounterId == counterId);*/
         }
 
         public IEnumerable<Participants> GetParticipants(int counterId)
