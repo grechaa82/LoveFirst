@@ -45,7 +45,7 @@ namespace LoveFirst.Controllers
             return View(participants);
         }
 
-        [HttpGet("/Home/AddPoint/{participantId:int}/{counterId:int}")]
+        /*[HttpGet("/Home/AddPoint/{participantId:int}/{counterId:int}")]*/
         public IActionResult AddPoint(int participantId, int counterId)
         {
             _repository.AddPoint(participantId, counterId);

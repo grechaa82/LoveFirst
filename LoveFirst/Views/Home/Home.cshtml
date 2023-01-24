@@ -20,7 +20,10 @@
             @for (int i = 0; i < Model.Count(); i++)
             {
                 <div class="button">
-                    <button class="background-color-@i main-button" asp-controller="Home" asp-action="AddPoint" asp-route-participantId="@Model[i].ParticipantId" asp-route-counterId="@Model[i].CounterId">+1</button>
+                    @*<button class="background-color-@i main-button" type="button" onclick="/Home/AddPoint" asp-controller="Home" asp-action="AddPoint" asp-route-participantId="@Model[i].ParticipantId" asp-route-counterId="@Model[i].CounterId">+1</button>*@
+                    <button class="btn">
+                        <a class="background-color-@i main-button" asp-controller="Home" asp-action="AddPoint" asp-route-participantId="@Model[i].ParticipantId" asp-route-counterId="@Model[i].CounterId">+1</a>
+                    </button>
                     <div class="info">
                         <span class="title">@Model[i].NameParticipant</span>
                         <span class="count-first color-@i">@Model[i].NumberScore</span>
@@ -32,7 +35,7 @@
     </main>
     <div class="total-count">
         <span>Общий счет</span>
-        <span>@ViewBag.totalScore</span>
+        <span style="color: #606060;">@ViewBag.totalScore</span>
     </div>
 </body>
 </html> 

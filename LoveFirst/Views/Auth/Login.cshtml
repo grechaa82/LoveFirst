@@ -14,24 +14,22 @@
 </head>
 <body>
     <main class="main">
-        <div class="container">
-            <form asp-controller="Auth" asp-action="Login" method="post">
-                <span>@ViewBag.result</span>
-                <div>
-                    <label>Логин</label>
-                    <input asp-for="Login" />
+        <div class="auth-container">
+            <form class="auth-form" asp-controller="Auth" asp-action="Login" method="post">
+                <span class="auth-result">@ViewBag.result</span>
+                <div class="auth-group">
+                    <input class="form-input" asp-for="Login" placeholder="Login"/>
                     <span asp-validation-for="Login"></span>
                 </div>
-                <div>
-                    <label>Пароль</label>
-                    <input asp-for="Password" />
+                <div class="auth-group">
+                    <input class="form-input" asp-for="Password" placeholder="Password"/>
                     <span asp-validation-for="Password"></span>
                 </div>
-                <div>
-                    <button type="submit">Войти</button>
+                <div class="auth-button">
+                    <button class="form-button" type="submit">Войти</button>
                 </div>
             </form>
-            <a asp-action="Registration">Создать новый аккаунт?</a>
+            <a class="reg" asp-action="Registration">Создать новый аккаунт?</a>
         </div>
     </main>
 </body>
